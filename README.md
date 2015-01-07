@@ -2,6 +2,8 @@ Greyify
 =======================
 
 [![Version](http://img.shields.io/packagist/v/teamsisu/contao-greyify.svg?style=flat-square)](https://github.com/Teamsisu/contao-greyify)
+[![License](http://img.shields.io/packagist/l/teamsisu/contao-greyify.svg?style=flat-square)](https://github.com/Teamsisu/contao-greyify)
+[![Downloads](http://img.shields.io/packagist/dt/teamsisu/contao-greyify.svg?style=flat-square)](https://github.com/Teamsisu/contao-greyify)
 
 An contao extension that provides a small class to greyscale images with PHP or inserttag
 
@@ -10,10 +12,12 @@ How to use:
 --------------
 
 You can use it as inserttag:
-```html
+```php
     {{greyify::imagePath/UUID?width=x&height=x&mode=x}}
 ```
 The parameters width/height/mode are optional
+
+
 
 
 Or in php over its static methods:
@@ -27,6 +31,7 @@ Or in php over its static methods:
 
 ```
 For the getHTML method there is as thrid parameter the "alt" value available
+
 The parameters width/height/mode are optional
 
 
