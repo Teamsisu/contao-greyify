@@ -35,7 +35,26 @@ class InsertTags extends \Controller
 
             case 'greyify':
 
+                if(count($data) > 2){
+                    switch(strtolower($data[1]))
+                    {
+
+                        case 'src':
+                            return Greyify::convert($data[2]);
+                            break;
+
+                        case 'tag':
+                            return Greyify::getHTML($data[2], false);
+                            break;
+
+                        case 'figure':
+                            return Greyify::getHTML($data[2], true);
+                            break;
+                    }
+
+                }else{
                     return Greyify::getHTML($data[1], true);
+                }
 
                 break;
         }

@@ -11,16 +11,24 @@ An contao extension that provides a small class to greyscale images with PHP or 
 How to use:
 --------------
 
-You can use it as inserttag:
+#### inserttag
 ```php
-    {{greyify::imagePath/UUID?width=x&height=x&mode=x}}
+
+    Default:
+    {{greyify::imagePath/UUID?width=x&height=x&mode=x}}  // returns an image tag with figure container
+    
+    SRC:
+    {{greyify::src::imagePath/UUID?width=x&height=x&mode=x}}  // returns only the file path
+    
+    TAG:
+    {{greyify::tag::imagePath/UUID?width=x&height=x&mode=x}}  // returns an image tag
+    
+    FIGURE:
+    {{greyify::figure::imagePath/UUID?width=x&height=x&mode=x}}  // returns an image tag with figure container
+    
 ```
-The parameters width/height/mode are optional
 
-
-
-
-Or in php over its static methods:
+#### php
 ```php
 
     $image = Greyify::convert(imagePath/UUID?width=x&height=x&mode=x);  // returns only the path of the image
@@ -30,9 +38,9 @@ Or in php over its static methods:
     $image = Greyify::getHTML(imagePath/UUID?width=x&height=x&mode=x, true);  // returns an image tag with figure container
 
 ```
-For the getHTML method there is as thrid parameter the "alt" value available
 
-The parameters width/height/mode are optional
+For the getHTML method there is as third parameter the "alt" value available
+The parameters width/height/mode are optional for both inserttag and php
 
 
 

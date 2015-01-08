@@ -57,15 +57,28 @@ class Greyify
             $objFile = self::checkFile($data);
         }
 
+        /**
+         * Check if file size is not greater then the contao max gd editing size #1
+         */
+        if($objFile->width > $GLOBALS['TL_CONFIG']['gdMaxImgWidth'] || $objFile->height > $GLOBALS['TL_CONFIG']['gdMaxImgHeight']){
+            \System::log('Image "' . $objFile->path . '" could not be converted to greyscale cause its size is to large for the gd editing', __METHOD__, TL_ERROR);
+            return null;
+        }
+
+        /**
+         * Resize the image with the default contao image function
+         */
         $image = \Image::get($objFile->path, $params['width'], $params['height'], $params['mode']);
+
+        if(is_null($image)){
+            return null;
+        }
 
         /**
          * Create cache name
          */
-        $strCacheKey = substr(md5('-w' . $params['width'] . '-h' . $params['height'] . '-' . $image . '-' . $params['mode'] . '-' . $objFile->mtime),
-            0, 8);
-        $strCacheName = 'assets/images/' . substr($strCacheKey,
-                -1) . '/' . $objFile->filename . '-grey' . '-' . $strCacheKey . '.' . $objFile->extension;
+        $strCacheKey = substr(md5('-w' . $params['width'] . '-h' . $params['height'] . '-' . $image . '-' . $params['mode'] . '-' . $objFile->mtime), 0, 8);
+        $strCacheName = 'assets/images/' . substr($strCacheKey, -1) . '/' . $objFile->filename . '-grey' . '-' . $strCacheKey . '.' . $objFile->extension;
 
         /**
          * Check if file already exists and if it was modified
@@ -134,7 +147,6 @@ class Greyify
     {
 
         $filePath = self::convert($filePath);
-
 
         $htmlIMG = '<img src="' . $filePath . '" ' . ($alt ? 'alt="' . $alt . '"' : '') . ' />';
 
