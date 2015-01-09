@@ -13,9 +13,9 @@
  */
 
 
-namespace Greyify\Helper;
+namespace Teamsisu\Greyify\Helper;
 
-use Greyify\Provider\Greyify;
+use Teamsisu\Greyify\Provider\Greyify;
 
 class InsertTags extends \Controller
 {

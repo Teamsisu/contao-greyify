@@ -17,4 +17,4 @@
  * Inserttag Hook
  */
 
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('Greyify\Helper\InsertTags', 'parseInsertTags');
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('Teamsisu\Greyify\Helper\InsertTags', 'parseInsertTags');

@@ -12,7 +12,7 @@
  */
 
 
-namespace Greyify\Provider;
+namespace Teamsisu\Greyify\Provider;
 
 
 class Greyify
