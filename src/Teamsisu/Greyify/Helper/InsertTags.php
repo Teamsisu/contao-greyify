@@ -58,6 +58,7 @@ class InsertTags extends \Controller
                     }
 
                 }else{
+
                     if(!$data[1]){
                         return false;
                     }

@@ -1,0 +1,39 @@
+{
+    "name": "teamsisu/contao-greyify",
+    "description": "An contao extension that provides a small class to greyscale images with PHP or inserttag",
+    "keywords": ["contao", "image", "frontend","grey", "gray", "greyscale", "grayscale"],
+    "type": "contao-module",
+    "homepage": "https://github.com/Teamsisu/contao-greyify",
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "Martin Treml",
+            "email": "martin.treml@teamsisu.at",
+            "homepage": "http://www.teamsisu.at",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Teamsisu/contao-greyify/issues",
+        "irc": "irc://irc.freenode.org/contao.de",
+        "source": "https://github.com/Teamsisu/contao-greyify"
+    },
+    "require": {
+        "php": ">=5.3",
+        "contao/core": ">=3.3,<4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Teamsisu\\Greyify": "src"
+        }
+    },
+    "extra": {
+        "contao": {
+            "sources": {
+                "contao": "system/modules/contao-greyify"
+            }
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}

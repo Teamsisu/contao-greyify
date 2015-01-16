@@ -35,7 +35,6 @@ class Greyify
         );
 
         if (strpos($data, '?') !== false) {
-
             // parse additonal tags
             $data = parse_url($data);
             $params = array();
