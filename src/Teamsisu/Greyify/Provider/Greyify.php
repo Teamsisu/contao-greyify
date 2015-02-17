@@ -95,14 +95,30 @@ class Greyify
              */
             switch ($objFile->extension) {
                 case 'png':
-                    $strImage = imagecreatefrompng($image);
+
+                    $strSourceImage = imagecreatefrompng($image);
+                    $strImage = imagecreatetruecolor(imagesx($strSourceImage), imagesy($strSourceImage));
+
+                    imagealphablending($strImage, false);
+                    $intTranspIndex = imagecolorallocatealpha($strImage, 0, 0, 0, 127);
+                    imagefill($strImage, 0, 0, $intTranspIndex);
+                    imagesavealpha($strImage, true);
+                    imagecopy($strImage, $strSourceImage, 0,0, 0, 0,imagesx($strSourceImage), imagesx($strSourceImage));
+
                     break;
                 case 'jpg':
                 case 'jpeg':
                     $strImage = imagecreatefromjpeg($image);
                     break;
                 case 'gif':
-                    $strImage = imagecreatefromgif($image);
+
+                    $strSourceImage = imagecreatefromgif($image);
+                    $strImage = imagecreatetruecolor(imagesx($strSourceImage), imagesy($strSourceImage));
+
+                    $transparent = imagecolorallocate($strImage, 0,0,0);
+                    imagecolortransparent($strImage, $transparent);
+                    imagecopy($strImage, $strSourceImage, 0,0, 0, 0,imagesx($strSourceImage), imagesx($strSourceImage));
+
                     break;
             }
 
